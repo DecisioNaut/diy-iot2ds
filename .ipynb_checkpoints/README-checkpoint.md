@@ -1,3 +1,5 @@
+![BIRDS LOGO]()
+
 # Do it Yourself! *Von IoT bis Data Science in einem Rutsch*
 
 **Bastelstrecke für wenig Geld und mit frei zugänglichen Ressourcen zur Demystifizierung gehypter Begriffe wie "Internet of Things" (IoT), "Cloud" und "Data Science"**
@@ -5,6 +7,8 @@
 ## Beschreibung
 
 Mit einem günstigen Raspberry Pi, einem einfachen Sensor und einem Google-Account lassen sich hochtrabende Begriffe wie "Internet of Things", "Cloud" und "Data Science" erfahrbar machen. 
+
+![BILD z.B. End-to-End-Handwerker oder sowas]()
 
 In diesem Repository finden sich Schritt-für-Schritt-Anleitungen für Neugierige und Bastler, mit denen ein Kleinstcomputer (ein Raspberry Pi) startklar gemacht werden kann, um einen Wetter-Sensor damit zu verbinden und mit diesem Daten zu generieren, die in die Google-Cloud geschoben werden. Fertig sind schon "Internet of Things" und "Cloud"! 
 
