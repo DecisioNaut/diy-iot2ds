@@ -19,7 +19,7 @@ Wer also mal eine komplette "End-to-End-Strecke" voller mystischer Themen bauen 
 1. [Was man braucht und woher man es bekommt!]()
 2. [Wie man seinen Raspberry Pi zusammensetzt und allgemein zum Laufen bringt!]()
 3. [Wie man den Sensor anbaut, die nötige Software auf den Raspberry bringt und das ganze mit Google verbindet!]()
-4. [Was man mit den Daten z.B. machen kann (und das ganz in der Google-Cloud)!]()
+4. [Was man mit den Daten z.B. machen kann (und das Ganze in der Google-Cloud)!]()
 
 ## Hinweis
 
