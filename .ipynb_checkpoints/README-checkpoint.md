@@ -20,4 +20,4 @@ Wer also mal eine komplette "End-to-End-Strecke" voller mystischer Themen bauen 
 ## Hinweis
 
 - Dieses Projekt ist - *um es einfach zu halten* - **nicht vor dem Hintergrund von Sicherheitsaspekten optimiert. Es wird empfohlen, einen separaten Google Account zu nutzen, der nach dem Projekt ggf. gelöscht werden kann.**
-- Dieses Projekt lehnt sich an [XXX]() an.
+- Dieses Projekt lehnt sich an den Blog von [whatimade.today](http://www.whatimade.today/log-sensor-data-straight-to-google-sheets-from-a-raspberry-pi-zero-all-the-python-code/) an.
