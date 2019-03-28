@@ -16,10 +16,10 @@ Weiterhin wird gezeigt, wie die Daten visualisiert werden können und ein einfac
 
 Wer also mal eine komplette "End-to-End-Strecke" voller mystischer Themen bauen möchte, folge einfach diesen Anleitungen:
 
-1. [Was man braucht und woher man es bekommt!]()
-2. [Wie man seinen Raspberry Pi zusammensetzt und allgemein zum Laufen bringt!]()
-3. [Wie man den Sensor anbaut, die nötige Software auf den Raspberry bringt und das ganze mit Google verbindet!]()
-4. [Was man mit den Daten z.B. machen kann (und das Ganze in der Google-Cloud)!]()
+1. [Was man braucht und woher man es bekommt!](https://github.com/QuantificAid/diy-iot2ds/blob/master/notebooks/1%20Was%20man%20braucht%20und%20woher%20man%20es%20bekommt.ipynb)
+2. [Wie man seinen Raspberry Pi zusammensetzt und allgemein zum Laufen bringt!](https://github.com/QuantificAid/diy-iot2ds/blob/master/notebooks/2%20Wie%20man%20seinen%20Raspberry%20Pi%20zusammensetzt%20und%20allgemein%20zum%20Laufen%20bringt.ipynb)
+3. [Wie man den Sensor anbaut, die nötige Software auf den Raspberry bringt und das ganze mit Google verbindet!](https://github.com/QuantificAid/diy-iot2ds/blob/master/notebooks/3%20Wie%20man%20den%20Sensor%20anbaut%2C%20die%20nötige%20Software%20auf%20den%20Raspberry%20bringt%20und%20das%20ganze%20mit%20Google%20verbindet.ipynb)
+4. [Was man mit den Daten z.B. machen kann (und das Ganze in der Google-Cloud)!](https://github.com/QuantificAid/diy-iot2ds/blob/master/notebooks/4%20Was%20man%20mit%20den%20Daten%20z.B.%20machen%20kann%20(und%20das%20ganz%20in%20der%20Google-Cloud).ipynb)
 
 ## Hinweis
 
