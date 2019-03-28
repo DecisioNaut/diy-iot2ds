@@ -1,9 +1,6 @@
-# Do it Yourself!
-# von IoT bis Data Science
+# Do it Yourself! *Von IoT bis Data Science in einem Rutsch*
 
 **Bastelstrecke für wenig Geld und mit frei zugänglichen Ressourcen zur Demystifizierung gehypter Begriffe wie "Internet of Things" (IoT), "Cloud" und "Data Science"**
-
-===
 
 ## Beschreibung
 
