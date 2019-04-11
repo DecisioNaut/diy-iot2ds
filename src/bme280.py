@@ -2,7 +2,7 @@ import time
 
 import smbus # pylint: disable=import-error
 
-ADDR = 0x76 # 7bit address of the BME280 for SDO=0, else 0x77
+ADDR = 0x77 # 7bit address of the BME280 for SDO=0, else 0x77
 
 REGISTER_ID = 0xD0
 REGISTER_RESET = 0xE0

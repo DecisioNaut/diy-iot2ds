@@ -1,46 +1,56 @@
 ![BIRDS LOGO]()
 
-# Do it Yourself! *Von IoT bis Data Science in einem Rutsch*
+# **Do it Yourself!** In der Cloud von Internet-of-Things bis Data Science
 
-**Bastelstrecke für wenig Geld und mit frei zugänglichen Ressourcen zur Demystifizierung gehypter Begriffe wie "Internet of Things" (IoT), "Cloud" und "Data Science"**
+## Darum geht's
 
-## Worum es geht
+Begriffe wie "Internet of Things" (IoT), "Cloud" und "Data Science" klingen spannend, erscheinen den meisten abstrakt und abseits ihrer Kompetenzen.  
 
-Hochtrabende Begriffe wie "Internet of Things", "Cloud" und "Data Science" klingen spannend, erscheinen dem Durchschnittsmenschen jedoch oft eher abstrakt und wenig anfassbar. Hier wollen wir das alles auch für Anfänger und mit günstigen Mitteln anfassbar machen! 
+In diesem kleinen Projekt wollen wir das alles - insbesondere für Anfänger - mit günstigen Mitteln und Schritt für Schritt erleb- und anfassbar machen. Es geht dabei explizit nicht um Theorie und Hintergründe, sondern der Spaß am Basteln und das gute Gefühl, "Hightech" mal selber zum Laufen gebracht zu haben, stehen absolut im Vordergrund.  
 
 ![BILD z.B. End-to-End-Handwerker oder sowas]()
 
-Dieses Repository ist eine Schritt-für-Schritt-Anleitung für Anfänger mit Neugierde und Spaß am Basteln. Wir verbinden als **IoT-Gerät** einen Kleinstcomputer (einen "Raspberry Pi") mit einem Wetter-Sensor. Die Daten, die damit generiert werden, werden in in die Google-**Cloud** geschoben und können dort visualisiert und auch mit maschinellem Lernen auf Unregelmäßigkeiten "**Data Science**"-mäßig hin analysiert werden.
+Konkret wollen wir einen 
+- Kleinstcomputer ("Raspberry Pi") zum Laufen bringen, mit einem
+- Wetter-Sensor verbinden und die generierten Daten automatisiert in die 
+- Google-Cloud schieben. Dort können wir die Daten mit
+- Data Science-Algorithmen visualisieren und analysieren
 
-Wer also mal eine komplette "End-to-End-Strecke" voller mystischer Themen bauen möchte, folge einfach dieser Anleitung in folgenden Schritten
+Wer also mal eine komplette "End-to-End-Strecke" voller wild klingender Themen abschreiten möchte, folge einfach dieser Anleitung in folgenden Kapiteln:
 
-1. [Was man braucht und woher man es bekommt!]
-2. [Wie man seinen Raspberry Pi zusammensetzt und allgemein zum Laufen bringt!]
-3. [Wie man den Sensor anbaut, die nötige Software auf den Raspberry bringt und das ganze mit Google verbindet!]
-4. [Was man mit den Daten z.B. machen kann (und das Ganze in der Google-Cloud)!]
+<ol>
+<li><a href="#chapter_1">"Zutaten" und Einkaufsliste</a></li>
+<li><a href="#chapter_2">Aufwärmen - den Raspberry zum Laufen bringen</a></li>
+<li><a href="#chapter_3">Mit Wetterdaten in die Wolke - IoT spricht mit Cloud</a></li>
+<li><a href="#chapter_4">Ein wenig Data Science</a></li>
+</ol>
 
-## Hinweise
 
-- Dieses Projekt ist - *um es einfach zu halten* - **nicht vor dem Hintergrund von Sicherheitsaspekten optimiert. Es wird empfohlen, einen separaten Google Account zu nutzen, der nach dem Projekt ggf. gelöscht werden kann.**
-- Dieses Projekt lehnt sich an den Blog-Eintrag von [whatimade.today](http://www.whatimade.today/log-sensor-data-straight-to-google-sheets-from-a-raspberry-pi-zero-all-the-python-code/) an, ist allerdings hinsichtlich der Ausführlichkeit der Anleitung und um einen Machine-Learning-Teil erweitert.
+> ### *Wichtige Hinweise* (TO BE CHECKED BY LAWYER?)
+- Dieses Projekt wurde im April 2019 erstellt und getestet - auf Grund von zukünftigen Änderungen der Hard- und Software und der jeweiligen Lizenzen kann es sein, dass zukünftig einzelne Schritte nicht mehr funktionieren oder rechtlich eingeschränkt oder gar ausgeschlossen werden. Birds on Mars übernimmt keine Gewähr und Verantwortung für die diesbezügliche Aktualität der Projektanleitung
+- Dieses Projekt ist - um es einfach zu halten - nicht vor dem Hintergrund von Sicherheitsaspekten optimiert. Wir empfehlen daher, einen separaten Google Account zu nutzen, der nach dem Projekt gelöscht werden kann.
+- Wir installieren zwar einen Wettersensor weisen aber darauf hin, dass der Aufbau nicht vor Feuchte und Regen geschützt ist. Um die Gefahr von Stromschlägen zu vermeiden und die Hardware zu schützen, darf der Aufbau und die Durchführung nur und ausschließlich in trockenen Umgebungen erfolgen.
+- Dieses Projekt lehnt sich an den Blog-Eintrag von [whatimade.today](http://www.whatimade.today/log-sensor-data-straight-to-google-sheets-from-a-raspberry-pi-zero-all-the-python-code/) an, ist allerdings insbesondere hinsichtlich der Ausführlichkeit der Anleitung und um einen Machine-Learning-Teil erweitert.
 
-# Was man braucht und woher man es bekommt!
+<a id='chapter_1'></a>
+## 1. "Zutaten" und Einkaufsliste
 
-Bevor man loslegen kann, gibt's schon ein paar Werkzeuge, die gebraucht werden.  
+Bevor man loslegen kann, gibt's ein paar Werkzeuge, die gebraucht werden.  
 Hier wird genau aufgelistet, was benötigt wird und woher man es z.B. bekommen kann.
 
-## Grundvoraussetzungen
+### Grundvoraussetzungen
 
-Um mit dem Raspberry Pi und der Google Cloud kommunizieren zu können, brauchen wir zunächst einfach nur 
-- einen Computer inkl. 
-- einer externen USB-Tastatur,
-- einer USB-Maus und 
-- eines Monitors mit HDMI-Ports 
-- und einen Internetzugang über WLAN oder Ethernet 
+Um mit dem Raspberry Pi und der Google Cloud kommunizieren zu können, brauchen wir zunächst einfach nur einen
+- Computer inkl. einer 
+- USB-Tastatur, einer 
+- USB-Maus und eines
+- Monitors mit HDMI-Ports, einen 
+- Internetzugang über WLAN (alternativ: LAN-Zugang mit Kabel) und einen
+- Kreuzschlitzschraubenzieher und kleine Flachzange (zum Zusammenschrauben)
 
 Wir gehen mal davon aus, dass das vorhanden ist.
 
-## Eine kleine Einkaufsliste
+### "Einkaufsliste"
 
 Die verwendete **Hardware** kostet insgesamt ca. 85 EUR:
 
@@ -51,16 +61,14 @@ Die verwendete **Hardware** kostet insgesamt ca. 85 EUR:
 
 ![Bilder von allem]()
 
-Es wäre prinzipiell auch möglich, den Preis eine ganze Ecke zu drücken. Man könnte eine abgespecktere Version des Raspberry zu verwenden, statt des vorgeschlagenen Zubehör-Bundles ein einfacheres zu nutzen oder bereits vorhandene Teile (z.B. SD-Karten und -Reader) zu verwenden und auch einen einfacheren und billigeren Sensor zu verwenden. Vermutlich käme man spartanisch auch mit etwa 40 EUR aus. Aber das haben wir nicht getestet und schlagen es deshalb auch hier nicht vor.
+Es wäre prinzipiell auch möglich, den Preis eine ganze Ecke zu drücken: man könnte eine abgespecktere Version des Raspberry zu verwenden, statt des vorgeschlagenen Zubehör-Bundles ein einfacheres zu nutzen oder bereits vorhandene Teile (z.B. SD-Karten und -Reader) zu verwenden und auch einen einfacheren und billigeren Sensor zu verwenden. Vermutlich käme man spartanisch auch mit etwa 40 EUR aus. Aber das haben wir nicht getestet und schlagen es deshalb auch hier nicht vor.
 
 Die verwendete **Software** gibt's für umme:
 
-- Software bzw. Scripte, die der Raspberry benötigt, um sich selbständig mit dem Netz zu verbinden, die Wetterdaten aus dem Sensor auszulesen und sie in die Cloud zu pushen, sind in diesem Repo abgelegt. Wie das genau funktioniert, darauf gehen wir in den nächsten Kapiteln ein.
-- Alle sonstige "Software", die wir nutzen, sind Anwendungen von Google, die in der Cloud laufen und über das Internet erreichbar sind. Welche Anwendungen, das sind und wie wir sie nutzen, wird in den nächsten Kapiteln gezeigt. Alles geht mit einem einfachen **Google-Account**. Einen Google-Account gibt's umsonst (und vielleicht ist schon einer vorhanden). Da das Projekt allerdings nicht für Sicherheitsaspekte optimiert ist, ***empfehlen wir einen separaten Account anzulegen, der später ggf. auch gelöscht werden kann***. Dies zeigen wir im folgenden.
+- Software bzw. Skripte, die der Raspberry benötigt lassen sich alle aus dem Netz laden. Wie das geht, beschreiben wir in Kapitel 3.
+- Alle sonstige "Software", die wir nutzen, sind Anwendungen von Google, die in der Cloud laufen und über das Internet erreichbar sind. Welche Anwendungen das sind und wie wir sie nutzen, wird in den Kapitel 3 und 4 gezeigt. Das alles geht mit einem einfachen **Google-Account**, den es kostenlos gibt. Vielleicht ist schon einer vorhanden; da das Projekt allerdings nicht für Sicherheitsaspekte optimiert ist, ***empfehlen wir einen separaten Account anzulegen, der später ggf. auch gelöscht werden kann***. Dies zeigen wir im folgenden.
 
-## Einen neuen Google Account erzeugen (und wie er gelöscht werden kann)
-
-Wie zuvor beschrieben, ist das Projekt nicht für Sicherheitsaspekte optimiert. Wir empfehlen daher, einen separaten Google Account mit folgenden Schritten anzulegen, der später auch wieder gelöscht werden kann.
+#### Einen neuen Google Account erzeugen (und löschen)
 
 Ein Google Account kann direkt von der [Google-Startseite](https://www.google.com) aus **erstellt** werden:  
 
@@ -68,7 +76,7 @@ Ein Google Account kann direkt von der [Google-Startseite](https://www.google.co
 
 Von dort wird man durch den weiteren Prozess gut geführt (und ist danach automatisch eingeloggt und kann über den Browser auf sein Konto zugreifen).
 
-Auch das **Löschen eines Accounts** geht einfach, indem man sich in sich in sein Konto einloggt...  
+Auch das **Löschen eines Accounts** geht einfach, indem man sich ggf. in sein Konto einloggt...  
 
 <img src="./pics/1-03_deletion-1.png" width=600 style="border:1px solid black"></br>  
 
@@ -76,29 +84,45 @@ Auch das **Löschen eines Accounts** geht einfach, indem man sich in sich in sei
 
 <img src="./pics/1-03_deletion-2.png" width=600 style="border:1px solid black"></br>  
 
-# Wie man seinen Raspberry Pi zusammensetzt und allgemein zum Laufen bringt!
+<a id='chapter_2'></a>
+## 2. Aufwärmen - den Raspberry zum Laufen bringen
 
-## Zusammenschrauben des Raspberry Pi
+Ein Raspberry Pi ist ein Kleinstcomputer, der von der Raspberry Pi Foundation, einer britischen Stiftung, 2012 erstmalig angeboten wurde. Ziel ist es mit dem Ziel, Menschen den Zugang zu Hardware- und Programmierkenntnissen zu erleichtern. 
 
-**TO COME**
+Ein Raspberry sieht aus, als hätte man ein Elektronikteil aus einem Radio geschraubt, ist aber ein vollwertiger und erstaunlich vielseitig erweiterbarer Computer. Er erfreut sich bei Bastlern und für Schulungszwecke großer Beliebtheit. Es wurden bereits rd. 20 Millionen Exemplare verkauft.
 
-## Download und Installation des Betriebssystems des Raspberry Pi
+Ausführliche Informationen, Software, Anleitungen, eine Community etc. finden sich auf [raspberrypi.org](https://www.raspberrypi.org/)
 
-Nach dem Zusammenschrauben kann der Raspberry (noch) nichts. Ihm fehlt das Betriebssystem, mit dem die verschiedenen Komponenten miteinander sprechen können. Da es je nach Anwendungszweck- und anforderungen verschiedene Betriebssysteme gibt, mit denen der Raspberry funktionieren kann, ist noch nichts vorinstalliert, sondern wir müssen das Betriebssystem unserer Wahl erst auf einer leeren/formatierten SD-Karte installieren (ist im gekauften Bundle ebenso wie ein SD-Kartenleser dabei).  
+### Schrauberglück
 
-Das ganze Downloaden und Installieren braucht Zeit. **Insgesamt eine Stunde** sollte man dafür einplanen, man kann aber gut einen Kaffee dabei trinken ;-)
+Nicht nur um Kosten zu sparen, ist ein Raspberry auf das Wesentlichste reduziert: nur eine Platine mit Chip und Anschlüssen und Steckverbindungen - kein Display, keine Tastatur. Man kann sich an ihm quasi das Skelett eines Rechners ansehen und über die Steckverbindungen alles Mögliche wie Kameras, Sensoren, Roboterarme usw. usf. anbringen.
 
-In der Regel - und auch hier - wird Raspbian, dass auf Linux basiert, genutzt. Man kann man von der [raspberrypi.org](https://www.raspberrypi.org/downloads/raspbian/)-Seite (https://www.raspberrypi.org/downloads/raspbian/) auf seinen Rechner herunterladen. Wir laden uns die Version **"Raspberry Strech with desktop and recommended software"** als zip-File herunter (knapp 2 GB, dauert also i.d.R. ein paar Minuten)  
+Um den Raspberry ein wenig zu schützen (und weil's cooler aussieht) schrauben wir den Raspberry in ein kleines Gehäuse oder "Rack". Eine Bauanleitung liegt bei. Wer's ganz genau sehen möchte, kann sich auch folgende kleine Videoanteilung und https://www.youtube.com/watch?v=i7Gw-wb1sfk ansehen:
+ 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=i7Gw-wb1sfk
+" target="_blank"><img src="http://img.youtube.com/vi/i7Gw-wb1sfk/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="600" height="400" border="0" /></a>
+
+
+### System in den Betrieb bringen
+
+> **Dieser Teil dauert insgesamt rund eine Stunde**, ohne dass zu viel spannendes passiert. Man kann aber gut einen Kaffee dabei trinken ;-) **Wer dieses Projekt zusammen mit Freunden durchführen möchte, kann diesen Schritt gut vorab vorbereiten** (auch ohne vorher das Gehäuse zusammenzubauen, was mehr Spaß macht).
+
+Nach dem Zusammenschrauben kann der Raspberry (noch) nichts. Ihm fehlt das Betriebssystem, mit dem die diversen Komponenten funktionieren und miteinander sprechen können. Da es je nach Anwendungszweck und -anforderungen verschiedene Betriebssysteme gibt, mit denen der Raspberry funktionieren kann, ist noch nichts vorinstalliert. Wir müssen das Betriebssystem unserer Wahl erst auf einer leeren/formatierten SD-Karte installieren (ist im gekauften Bundle ebenso dabei wie ein SD-Kartenleser). Oft - und auch hier - wird Raspbian, das auf Linux basiert, genutzt. Man kann das Betriebssystem von der [raspberrypi.org](https://www.raspberrypi.org/downloads/raspbian/)-Seite (https://www.raspberrypi.org/downloads/raspbian/) auf seinen Rechner herunterladen.  
+
+Wir laden uns die Version **"Raspberry Strech with desktop and recommended software"** als zip-File herunter (knapp 2 GB, dauert also i.d.R. ein paar Minuten) ...  
 
 <img src="./pics/2_download_software.png" width=600 style="border:1px solid black"></br>  
 
-und ent-zippen das Ganze (hat danach gut 5 GB).  
+... und ent-zippen das Ganze (hat danach gut 5 GB).  
 
-Das weitere Prozedere ist ebenfalls auf der [raspberrypi.org](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)-Seite im Details beschrieben (https://www.raspberrypi.org/documentation/installation/installing-images/README.md ).  
+Das weitere Prozedere ist auch knapp auf der [raspberrypi.org](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)-Seite beschrieben (https://www.raspberrypi.org/documentation/installation/installing-images/README.md ). 
 
-Das Betriebssystem kann aber nicht einfach auf die SD-Karte kopiert werden; es muss ein "boot-fähiges Image gebrannt" werden. Wie auch in der Dokumentation beschrieben geht das einigermaßen komfortabel mit dem Programm [**"Etcher"**](https://www.balena.io/etcher/), das es für Windows, MacOS und Linux gibt (https://www.balena.io/etcher/, ca. 100 MB). 
+Hier aber eine etwas ausführlichere Darstellung (und auf Deutsch): 
 
-Dann: 
+Das Betriebssystem kann nicht einfach auf die SD-Karte kopiert werden; es muss ein "boot-fähiges Image gebrannt" werden. Das geht einigermaßen komfortabel mit dem Programm [**"Etcher"**](https://www.balena.io/etcher/), das es für Windows, MacOS und Linux gibt und das wir unter dieser Adresse https://www.balena.io/etcher/ herunterladen (ca. 100 MB) und dann installieren können. 
+
+Dann folgende Schritte: 
 - Leere/formatierte SD-Karte in den Kartenleser stecken, 
 - mit dem Rechner verbinden, 
 - Etcher starten und 
@@ -106,14 +130,15 @@ Dann:
 
 <img src="./pics/2_flash.png" width=600 style="border:1px solid black"></br>  
 
-Damit sich das Betriebssystem nun vollständig entpackt und initialisiert, stecken wir die **SD-Karte in den kleinen Slot an der Seite des Raspberry**, verbinden den Raspberry mit der USB-Tastatur und -Maus sowie dem HDMI-Bildschirm und schalten ihn dann ein - aber <u>erst dann!</u>, weil der Raspberry sonst z.B. den Bildschirm nicht erkennen kann.  
+Damit sich das Betriebssystem vollständig entpackt und initialisiert, müssen wir die 
+- SD-Karte in den kleinen Slot an der Seite des Raspberry stecken, den 
+- Raspberry mit der USB-Tastatur und -Maus sowie dem HDMI-Bildschirm verbinden und 
+- ihn dann ein - aber <u>erst dann!</u> - einschalten (weil der Raspberry sonst z.B. den Bildschirm nicht erkennen kann, da er nicht ohne weiteres Plug-and-Play-fähig ist).  
 
-BILD WAS WO REINSTECKEN/VERBINDEN
-
-**Erstes Booten und System-Update** des Raspberry (dauert wegen Entpacken des Systems und dem Download der Updates ca. 20min)
-- So sieht des Startbildschirm aus:  
+**Das erste Booten und System-Update** des Raspberry dauert wegen Entpacken des Systems und dem Download der Updates ca. 20min:
+- So sieht nach einer Weile Warten der Startbildschirm aus:  
 </br><img src="./pics/2_boot_welcome.png" width=400 style="border:1px solid black">  
-- Nun können/müssen die Landeseinstellungen angepasst werden:  
+- Dann können/müssen die Landeseinstellungen angepasst werden:  
 </br><img src="./pics/2_boot_country_settings.png" width=400 style="border:1px solid black">  
 - Anschließend sollte das Passwort angepasst werden:  
 </br><img src="./pics/2_boot_password.png" width=400 style="border:1px solid black">  
@@ -124,21 +149,30 @@ BILD WAS WO REINSTECKEN/VERBINDEN
 - Zuletzt muss das System nochmals rebooten:  
 </br><img src="./pics/2_boot_reboot.png" width=400 style="border:1px solid black">  
 
-**Fertig!** ... und bestimmt genug Kaffee für heute getrunken.
+**Uffz! Fertig!** ... und bestimmt genug Kaffee für heute getrunken.
 
-# Wie man den Sensor anbaut, die nötige Software auf den Raspberry bringt und das ganze mit Google verbindet!
+<a id='chapter_3'></a>
+## Mit Wetterdaten in die Wolke - IoT spricht mit Cloud
 
-## Setup für die Verbindung mit Google (und ab in die Wolke)
+Die nachfolgenden Schritte sind etwas tricky. Daher sind sie sehr detailliert beschrieben.
+Zunächst bauen wir das
+<ol style="list-style-type:lower-latin">
+    <li><a href="#chapter_3-1">Setup für die Verbindung mit Google</a> auf, kümmern uns dann um das </li>
+    <li><a href="#chapter_3-2">Anschließen des Sensors</a> und führen dann</li>
+    <li><a href="#chapter_3-3">Download und Konfiguration der Software für den Raspberry</a> durch.</li>
+</ol>  
+Wir wählen diese Reihenfolge, damit wir die konfigurierte Software am Ende auch direkt testen können.
 
-Zunächst bleiben wir mal auf dem Raspberry und loggen uns in unseren Account ein (s. 1.):
+<a id='chapter_3-1'></a>
+### 3.a Setup für die Verbindung mit Google
 
+Zunächst bleiben wir mal auf dem Raspberry und loggen uns in unseren Account ein (s. 1.):  
 </br><img src="./pics/3_google_login_1.png" width=600 style="border:1px solid black">
 </br><img src="./pics/3_google_login_2.png" width=600 style="border:1px solid black">
 </br><img src="./pics/3_google_login_3.png" width=600 style="border:1px solid black">  
 
-
 Nun basteln wir uns die **<u>Google Tabelle</u>, in die wir später die Daten pushen**.  
-Wohlgemerkt liegen diese Tabelle und später die Daten in der Google-Cloud. D.h. wir können von überall und jederzeit darauf zugreifen.  
+Wohlgemerkt liegen diese Tabelle und später die Daten in der Google-Cloud. D.h. wir können später von überall und jederzeit darauf zugreifen.  
 
 Erstmal suchen wir nach "Google Tabellen" (ist der kürzeste Weg...) und klicken den ersten Link:
 
@@ -148,78 +182,65 @@ Dann wechseln wir in die Cloud-Applikation ...
 
 <img src="./pics/3_google_table_2.png" width=600 style="border:1px solid black"></br>  
 
-... und übergehen mal die Tour ...
+... und übergehen mal die Tour, indem wir das kleine Kreuz anklicken, ...
 
 <img src="./pics/3_google_table_3.png" width=600 style="border:1px solid black"></br>  
 
-... sondern legen gleich mit einer neuen leeren Tabelle los:
+... und legen gleich mit einer neuen leeren Tabelle los ("Leer"):
 
 <img src="./pics/3_google_table_4.png" width=600 style="border:1px solid black"></br>  
 
-Wir benennen die Tabelle passend mit "diy-iot2ds":
+Wir benennen die Tabelle (oben links) passend mit "diy-iot2ds" ...
 
 <img src="./pics/3_google_table_5.png" width=600 style="border:1px solid black"></br>  
 
-Bennen den Tabellenreiter mit "Daten":
+... bennen den Tabellenreiter (unten links) mit "Daten" ...
 
-</br><img src="./pics/3_google_table_6.png" width=600 style="border:1px solid black">
-</br>  
+<img src="./pics/3_google_table_6.png" width=600 style="border:1px solid black"></br>  
 
-Und bennen die Spalten A bis D in der Zeile 1 mit "Zeit", "Temperatur", "Luftdruck" und "Luftfeuchtigkeit":
+... und bennen die Spalten A bis D in der Zeile 1 mit "Zeit", "Temperatur", "Luftdruck" und "Luftfeuchtigkeit":
 
-</br><img src="./pics/3_google_table_7.png" width=600 style="border:1px solid black">
-</br>  
+<img src="./pics/3_google_table_7.png" width=600 style="border:1px solid black"></br>  
 
 
-Zuletzt merken wir uns für später, wo wir die **ID-Nummer der Tabelle** finden.  
+Zuletzt merken wir uns für später die **ID-Nummer der Tabelle**.   
 Der Zugriff auf die Tabelle erfolgt nämlich im engeren Sinne nicht über den vermeintlichen Dateinamen, sondern über eine längliche innerhalb der Google-Cloud erzeugte ID, die sich aber einfach aus der http-Adresse ablesen lässt:
 
-</br><img src="./pics/3_google_table_8.png" width=600 style="border:1px solid black">
-</br>  
+<img src="./pics/3_google_table_8.png" width=600 style="border:1px solid black"></br>  
 
+So, jetzt wird ein wenig sportlicher: 
 
-So, jetzt wird ein wenig sportlicher: wir erzeugen einen **<u>Schlüssel</u> mit dem wir später auf die Google-Tabelle automatisch/"von außen" zugreifen dürfen**. Dazu wechseln wir zu [GoogleAPIs](https://console.developers.google.com) und akzeptieren die entsprechenden Nutzungsbedingungen:
+Wir erzeugen einen **<u>Schlüssel</u> mit dem wir später auf die Google-Tabelle automatisch/"von außen" zugreifen dürfen**. Dazu wechseln wir zu [GoogleAPIs](https://console.developers.google.com) unter der Adresse https://console.developers.google.com und müssen die Nutzungsbedingungen akzeptieren:
 
-</br><img src="./pics/3_google_credentials_01.png" width=600 style="border:1px solid black">
-</br> 
-</br><img src="./pics/3_google_credentials_02.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_google_credentials_01.png" width=600 style="border:1px solid black"></br> 
+<img src="./pics/3_google_credentials_02.png" width=600 style="border:1px solid black"></br> 
 
-Dann suchen wir in der "Bibliothek" des "Google Sheets API" und aktivieren sie:
+Dann suchen wir dort in der "Bibliothek" die "Google Sheets API" und aktivieren sie:
 
+<img src="./pics/3_google_credentials_03.png" width=600 style="border:1px solid black"></br> 
+<img src="./pics/3_google_credentials_04.png" width=600 style="border:1px solid black"></br> 
+<img src="./pics/3_google_credentials_05.png" width=600 style="border:1px solid black"></br> 
 
-</br><img src="./pics/3_google_credentials_03.png" width=600 style="border:1px solid black">
-</br> 
-</br><img src="./pics/3_google_credentials_04.png" width=600 style="border:1px solid black">
-</br> 
-</br><img src="./pics/3_google_credentials_05.png" width=600 style="border:1px solid black">
-</br> 
+Anschließend erstellen wir das "Projekt", das diesen Zugriff nutzen können soll. Natürlich soll es "diy-iot2ds" heißen:
 
-Anschließend erstellen wir das "Projekt", das diesen Zugriff nutzen soll. Natürlich soll es "diy-iot2ds" heißen:
-
-</br><img src="./pics/3_google_credentials_06.png" width=600 style="border:1px solid black">
-</br> 
-</br><img src="./pics/3_google_credentials_07.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_google_credentials_06.png" width=600 style="border:1px solid black"></br> 
+<img src="./pics/3_google_credentials_07.png" width=600 style="border:1px solid black"></br> 
 
 Nun müssen wir das ganze "final" aktivieren:
 
-</br><img src="./pics/3_google_credentials_08.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_google_credentials_08.png" width=600 style="border:1px solid black"></br> 
 
-Aber ohne Anmeldesdaten (sogenannte credentials geht natürlich und glücklicherweise nichts). 
+Aber ohne Anmeldesdaten (sogenannte credentials) geht natürlich (und glücklicherweise) nichts. 
 Auf den nächsten Screens können wir sie uns besorgen und müssen sie anschließen spezifizieren:
 
-</br><img src="./pics/3_google_credentials_09.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_google_credentials_09.png" width=600 style="border:1px solid black"></br> 
 
 - Verwendung der "Google Sheets API" 
 - über "Andere Nicht-Benutzeroberfläche" 
 - mit Zugriff auf die "Anwendungsdaten", 
 - wobei wir keine App Engine oder Compute Engine verwenden ("Nein, ich verwende sie nicht")
 
-</br><img src="./pics/3_google_credentials_10.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_google_credentials_10.png" width=600 style="border:1px solid black"></br> 
 
 Dann legen wir die eigentlichen die Anmeldedaten festlegen:
 
@@ -227,53 +248,48 @@ Dann legen wir die eigentlichen die Anmeldedaten festlegen:
 - "Rolle" "Bearbeiter" (aus dem Untermenü "Projekt") mit dem
 - "Schlüsseltyp" "JSON"
 
-</br><img src="./pics/3_google_credentials_11.png" width=600 style="border:1px solid black">
-</br> 
-</br><img src="./pics/3_google_credentials_12.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_google_credentials_11.png" width=600 style="border:1px solid black"></br> 
+<img src="./pics/3_google_credentials_12.png" width=600 style="border:1px solid black"></br> 
 
 Der erforderliche **"Schlüssel" (eine Datei im sog. "JSON"-Format) wurde erstellt und automatisch heruntergeladen und liegt im Ordner "Downloads" des Raspberry**.
 
-</br><img src="./pics/3_google_credentials_13.png" width=600 style="border:1px solid black">
+<img src="./pics/3_google_credentials_13.png" width=600 style="border:1px solid black"></br> 
+
+Nun erlauben wir zu guter letzt diesem "Nutzer" (diy-iot2ds@
+diy-iot2ds@GMAIL-ADRESSNAME.iam.gserviceaccount.com) wieder in den Google Tabellen unter "Freigeben"
+mit der Google Tabelle zu sprechen (lesen & schreiben):
+
+<img src="./pics/3_google_credentials_14.png" width=600 style="border:1px solid black">
 </br> 
 
-Nun erlauben wir diesem "Nutzer" mit der Google Tabelle zu sprechen:
+<a id='chapter_3-2'></a>
+### 3.b Anschließen des Sensors
 
-</br><img src="./pics/3_google_credentials_14.png" width=600 style="border:1px solid black">
-</br> 
-
-
-## Anschließen des Sensors
-
-Damit der Raspberry mit den Steckplätzen sprechen kann müssen wir das zunächst in den Einstellungen aktivieren:
+Damit der Raspberry mit den Steckplätzen sprechen kann müssen wir das zunächst im Hauptmenü (Beere oben links) im Punkt "Einstellungen"/"Raspberry Pi Konfiguration" aktivieren:
 
 </br><img src="./pics/3_sensor_1.png" width=600 style="border:1px solid black">
 </br> 
 </br><img src="./pics/3_sensor_2.png" width=600 style="border:1px solid black">
 </br> 
 
-Dann schalten wir den Raspberry aus (und stecken ihn vom Netzteil ab), um den Sensor festzuklemmen (das Herunterfahren wird auch benötigt, um die veränderten Einstellungen zu aktivieren).
+Dann schalten wir den Raspberry **aus (und stecken ihn vom Netzteil ab), um den Sensor festzuklemmen** (das Herunterfahren wird übrigens auch benötigt, um die veränderten Einstellungen zu aktivieren).
 
-**TO COME**
+**BILDERSTRECKE TO COME**
 
-Bevor wir den Sensor anschließen, sollte sichergestellt sein, dass der Raspberry nicht am Stromnetz hängt - ist besser für Mensch <u>und</u> Maschine...  
-Der Sensor, den wir hier vorliegen haben, besteht eigentlich aus zwei Teilen. ...
 
-## Download und Konfiguration der Software
+<a id='chapter_3-3'></a>
+### 3.c Download und Konfiguration der Software für den Raspberry
 
 Um die Software herunterzuladen "clonen" wir einfach dieses Github-Repository auf den Desktop des Raspberry. Dazu machen wir zunächst einen Terminal auf und geben `cd Desktop` für den Wechsel ins Desktop-Verzeichnis ein:
 
-</br><img src="./pics/3_software_01.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_software_01.png" width=600 style="border:1px solid black"></br> 
 
 Dann geben wir `git clone https://github.com/birds-on-mars/diy-iot2ds` ein, wodurch der gesamte Inhalt dieses Repos in einen Ordner auf dem Desktop des Raspberry kopiert wird:
 
-</br><img src="./pics/3_software_02.png" width=600 style="border:1px solid black">
-</br> 
-</br><img src="./pics/3_software_03.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_software_02.png" width=600 style="border:1px solid black"></br> 
+<img src="./pics/3_software_03.png" width=600 style="border:1px solid black"></br> 
 
-Weiterhin werden wir ein paar Bibliotheken brauchen, damit das heruntergeladene Programm mit der Google-Cloud sprechen kann. Dazu geben wir 
+Weiterhin werden wir ein paar Bibliotheken brauchen, damit die heruntergeladene Programme funktionieren und Sensor und Google-Cloud sprechen können. Dazu geben wir 
 
 - `sudo apt-get update`
 - `sudo apt-get install -y python-smbus i2c-tools`
@@ -281,26 +297,22 @@ Weiterhin werden wir ein paar Bibliotheken brauchen, damit das heruntergeladene 
 
 in ein Terminalfenster ein.
 
-</br><img src="./pics/3_software_03a.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_software_03a.png" width=600 style="border:1px solid black"></br> 
 
 Aus dem Ordner "Downloads" verschieben wir nun den vorhin kreierten "Schlüssel" in das Unterverzeichnis "src" des "diy-iot2ds"-Ordners auf dem Desktop:
 
-</br><img src="./pics/3_software_04.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_software_04.png" width=600 style="border:1px solid black"></br> 
 
 Durch Doppelklick auf "push_data_to_google_sheet.py" (auch im Ordner "Desktop/diy-iot2ds/src") öffnet sich das entsprechende Python-Script in der auf dem Raspberry installierten "Thonny"-Programmierumgebung
 
-</br><img src="./pics/3_software_04a.png" width=600 style="border:1px solid black">
-</br>  
+<img src="./pics/3_software_04a.png" width=600 style="border:1px solid black"></br>  
 
 Zwei Dinge sind hier (jeweils hinter dem `=`-Zeichen zu ergänzen:
 
 - Der Name des "Schlüssel"-/"Credential"-Files (soetwas in der Art "diy-iot2ds-....json")
 - Die ID der Google Tabelle (s. oben, dort wo wir die Tabelle vorbereitet haben) (die längliche Zahlen und Buchstabenreihe)
 
-</br><img src="./pics/3_software_05.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_software_05.png" width=600 style="border:1px solid black"></br> 
 
 Nun speichern wir das modifizierte Skript (Button "Save").
 
@@ -308,19 +320,16 @@ Wir müssen auch überprüfen, ob die "pins"  wie erwartet sind (Adressen der St
 
 Dazu geben wir im Terminal `i2cdetect -y 1` ein:
 
-</br><img src="./pics/3_software_05a.png" width=600 style="border:1px solid black">
-</br>  
+<img src="./pics/3_software_05a.png" width=600 style="border:1px solid black"></br>  
 
 Sollte da `77` zu sehen sein, ist alles schon fein. Sollte da was anderes zu sehen sein (z.B. `76`), so doppelklicken wir nun auf "bme280.py" und ändern diese Nummer und speichern die Datei dann (alles wie gerade "push_data_to_google_sheet.py"):
 
-</br><img src="./pics/3_software_05b.png" width=600 style="border:1px solid black">
-</br>  
+<img src="./pics/3_software_05b.png" width=600 style="border:1px solid black"></br>  
 
 
-Nun gucken wir, ob das Skript läuft, indem wir im Termninal mit `cd Desktop/diy-iot2ds/src` in unser Skript-Verzeichnis gehen und dort `python push_data_to_google_sheet.py` eingeben:
+Jetzt (die Spannung steigt, die Trommeln wirbeln) gucken wir, ob das Skript läuft, indem wir im Termninal mit `cd Desktop/diy-iot2ds/src` in unser Skript-Verzeichnis gehen und dort `python push_data_to_google_sheet.py` eingeben:
 
-</br><img src="./pics/3_software_06.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_software_06.png" width=600 style="border:1px solid black"></br> 
 
 
 Hat's funktioniert? Zeigt sowohl der Terminal, als auch die Google-Tabelle die Daten an?  
@@ -328,14 +337,14 @@ Hat's funktioniert? Zeigt sowohl der Terminal, als auch die Google-Tabelle die D
 
 Wir wollen nun erreichen, dass der Raspberry - einfach beim Anschalten und ohne Befehlseingabe und ohne dass Tastatur, Maus und Bildschirm angeschlossen sein müssen - startet und dauerhaft alle paar Sekunden ausführt. Dazu müssen wir noch einen sogenannten "cronjob" einrichten. Im Terminal geben wir dafür `crontab -e` ein und geben dort in eine neue Zeile `@reboot (cd /home/pi/Desktop/diy-iot2ds/src ; python stream_weather_data.py)`:
 
-</br><img src="./pics/3_cronjob_1.png" width=600 style="border:1px solid black">
-</br> 
-</br><img src="./pics/3_cronjob_1.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_cronjob_1.png" width=600 style="border:1px solid black"></br> 
+<img src="./pics/3_cronjob_1.png" width=600 style="border:1px solid black"></br> 
 
 *Sollten wir gefragt werden, welcher Editor es zum Erstellen des cronjobs es sein soll, nehmen wir einfach "nano" (Option 2 - auch Vorschlag des Systems).*
 
 Und speichen und schließen mit `Strg-O` (oder `control-O`), `Enter` und `Strg-X` (oder `control-X`).
+
+Jetzt können wir den Raspberry ausschalten, alles abklemmen, ihn irgendwohin stellen, an Strom anschließen, einschalten und **fertig ist unser IoT-Gerät, das mit der Cloud spricht!**
 
 # Was man mit den Daten z.B. machen kann (und das Ganze in der Google-Cloud)!
 
