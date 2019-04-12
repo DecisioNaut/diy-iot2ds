@@ -1,5 +1,12 @@
 ![BIRDS LOGO]()
 
+TO DOS:
+- Birds Logo einfügen
+- Disclaimer prüfen lassen?
+- Foto der "Einkäufe"
+- Fotos+eigene Skizze für die Verkabelung
+- Outlier kalibieren (und Cronjob 120 Sekunden vor Start warten lassen, damit sich die Raspi-Uhr synchronisiert)
+
 # **Do it Yourself!** In der Cloud von Internet-of-Things bis Data Science
 
 ## Darum geht's
@@ -259,8 +266,7 @@ Nun erlauben wir zu guter letzt diesem "Nutzer" (diy-iot2ds@
 diy-iot2ds@GMAIL-ADRESSNAME.iam.gserviceaccount.com) wieder in den Google Tabellen unter "Freigeben"
 mit der Google Tabelle zu sprechen (lesen & schreiben):
 
-<img src="./pics/3_google_credentials_14.png" width=600 style="border:1px solid black">
-</br> 
+<img src="./pics/3_google_credentials_14.png" width=600 style="border:1px solid black"></br> 
 
 <a id='chapter_3-2'></a>
 ### 3.b Anschließen des Sensors
@@ -272,15 +278,31 @@ Damit der Raspberry mit den Steckplätzen sprechen kann müssen wir das zunächs
 </br><img src="./pics/3_sensor_2.png" width=600 style="border:1px solid black">
 </br> 
 
-Dann schalten wir den Raspberry **aus (und stecken ihn vom Netzteil ab), um den Sensor festzuklemmen** (das Herunterfahren wird übrigens auch benötigt, um die veränderten Einstellungen zu aktivieren).
+Dann schalten wir den Raspberry **aus (und stecken ihn vom Netzteil ab), um den Sensor festzuklemmen** (das Herunterfahren wird übrigens auch benötigt, um die veränderten Einstellungen zu aktivieren).  
 
-**BILDERSTRECKE TO COME**
+Die Kabelverbindungen herzustellen ist etwas fummelig. Aus dem Kabelsortiment brauchen wir ein Bündel von vier Kabeln, in die man Pins "hereinstecken" kann.
 
+<img src="./pics/3_cable.png" width=600 style="border:1px solid black"></br>  
+
+Dann verbinden wir die Seite des Sensors, an der nur 4 Pins sind, mit den Kabeln:
+
+<img src="./pics/3_cable_to_sensor.png" width=600 style="border:1px solid black"></br>  
+
+Wir gucken genau auf die "Kurzbezeichnungen" auf der Platine des Sensors, merken uns jeweils genau die Kabelfarbe und verbinden die anderen Kabelenden nach folgendem Schema mit den entsprechenden Pins auf dem Raspberry:
+
+<img src="./pics/3_wireing.png" width=600 style="border:1px solid black"></br>  
+<img src="./pics/3_cable_to_raspi.png" width=600 style="border:1px solid black"></br>  
+
+Das Ganze soll stabil sein, aber bitte eine rohe Gewalt ausüben: die kleinen Pins könnten schon auch abbrechen.
+
+Uffz, das war nun handwerklich aber auch der frickeligste Teil.
 
 <a id='chapter_3-3'></a>
 ### 3.c Download und Konfiguration der Software für den Raspberry
 
-Um die Software herunterzuladen "clonen" wir einfach dieses Github-Repository auf den Desktop des Raspberry. Dazu machen wir zunächst einen Terminal auf und geben `cd Desktop` für den Wechsel ins Desktop-Verzeichnis ein:
+Um die Software, die dafür sorgt, das der Raspberry sowohl mit dem Sensor, als auch mit Google sprechen kann, herunterzuladen "clonen" wir dieses Github-Repository auf den Desktop des Raspberry. 
+
+Dazu machen wir zunächst einen Terminal auf und geben `cd Desktop` für den Wechsel ins Desktop-Verzeichnis ein:
 
 <img src="./pics/3_software_01.png" width=600 style="border:1px solid black"></br> 
 
@@ -331,7 +353,6 @@ Jetzt (die Spannung steigt, die Trommeln wirbeln) gucken wir, ob das Skript läu
 
 <img src="./pics/3_software_06.png" width=600 style="border:1px solid black"></br> 
 
-
 Hat's funktioniert? Zeigt sowohl der Terminal, als auch die Google-Tabelle die Daten an?  
 **Es hat geklappt!!**
 
@@ -344,12 +365,15 @@ Wir wollen nun erreichen, dass der Raspberry - einfach beim Anschalten und ohne 
 
 Und speichen und schließen mit `Strg-O` (oder `control-O`), `Enter` und `Strg-X` (oder `control-X`).
 
-Jetzt können wir den Raspberry ausschalten, alles abklemmen, ihn irgendwohin stellen, an Strom anschließen, einschalten und **fertig ist unser IoT-Gerät, das mit der Cloud spricht!**
+Jetzt können wir den Raspberry ausschalten, alles abklemmen, ihn irgendwohin in Reichweite des WLAN stellen, an Strom anschließen, einschalten und **fertig ist unser IoT-Gerät, das mit der Cloud spricht!**
 
 # Was man mit den Daten z.B. machen kann (und das Ganze in der Google-Cloud)!
 
-## Erster Blick auf die Daten
+So, super, jetzt steht unser Raspberry mit dem Sensor irgendwo in Reichweite des WLAN surrt vor sich hin, und nun?
 
-## Erste Visualisierung in Google Sheets
+Nun können wir an unseren "normalen" Computer gehen, uns bei unserem Google-Account einloggen, die Tabelle in GDrive aufmachen und uns freuen, dass etwa alle 10 Sekunden ein neuer Datensatz mit Zeit-, Temperatur-, Luftdruck- und Luftfeuchtigkeitsangabe "hereintickert". Ein Gefühl der Befriedigung macht sich bereit, aber irgendwie könnte es bunter und interessanter sein... kann man eigentlich irgendwas Spannendes mit den Daten machen, als nur diese Daten zu bewundern?
 
-## Daten-Analyse mit Google Colab
+Klaro: dazu klicken wir diesen Link:
+
+**GITHUB-LINK**
+
