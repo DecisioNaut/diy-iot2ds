@@ -5,8 +5,7 @@ TO DOS:
 - Disclaimer prüfen lassen?
 - Foto der "Einkäufe"
 - Fotos+eigene Skizze für die Verkabelung
-- Link zum Colab-Notebook
-- Erklärung wie man dem Colab-Notebook erlaubt, mit dem GDrive zu sprechen
+- Outlier kalibieren (und Cronjob 120 Sekunden vor Start warten lassen, damit sich die Raspi-Uhr synchronisiert)
 
 # **Do it Yourself!** In der Cloud von Internet-of-Things bis Data Science
 
@@ -378,8 +377,3 @@ Klaro: dazu klicken wir diesen Link:
 
 **GITHUB-LINK**
 
-## Erster Blick auf die Daten
-
-## Erste Visualisierung in Google Sheets
-
-## Daten-Analyse mit Google Colab
