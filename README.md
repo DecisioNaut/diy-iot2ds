@@ -375,6 +375,5 @@ So, super, jetzt steht unser Raspberry mit dem Sensor irgendwo in Reichweite des
 Nun können wir an unseren "normalen" Computer gehen, uns bei unserem Google-Account einloggen, die Tabelle in GDrive aufmachen und uns freuen, dass etwa alle 10 Sekunden ein neuer Datensatz mit Zeit-, Temperatur-, Luftdruck- und Luftfeuchtigkeitsangabe "hereintickert". Ein Gefühl der Befriedigung macht sich bereit, aber irgendwie könnte es bunter und interessanter sein... kann man eigentlich noch Spannenderes mit den Daten machen, als nur diese Daten zu bewundern?
 
 Klaro: dazu klicken wir diesen Link:
-
-**GITHUB-LINK**
+https://github.com/QuantificAid/diy-iot2ds/blob/master/analyze_weather_data.ipynb
 
