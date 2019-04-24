@@ -12,10 +12,10 @@ Begriffe wie "Internet of Things" (IoT), "Cloud" und "Data Science" klingen span
 In diesem kleinen Projekt wollen wir das alles - insbesondere für Anfänger - mit günstigen Mitteln und Schritt für Schritt erleb- und anfassbar machen. Es geht dabei explizit nicht um Theorie und Hintergründe, sondern der Spaß am Basteln und das gute Gefühl, "Hightech" mal selber zum Laufen gebracht zu haben, stehen absolut im Vordergrund.  
 
 > **Konkret** wollen wir einen  
-- **Kleinstcomputer ("Raspberry Pi")** zum Laufen bringen, mit einem  
-- **Wetter-Sensor** verbinden und die generierten Daten automatisiert in die**  
-- **Google-Cloud** schieben. Dort können wir die Daten mit  
-- **Data Science-Algorithmen** visualisieren und analysieren
+>- **Kleinstcomputer ("Raspberry Pi")** zum Laufen bringen, mit einem  
+>- **Wetter-Sensor** verbinden und die generierten Daten automatisiert in die**  
+>- **Google-Cloud** schieben. Dort können wir die Daten mit  
+>- **Data Science-Algorithmen** visualisieren und analysieren
 
 Wer also mal eine komplette "End-to-End-Strecke" voller wild klingender Themen abschreiten möchte, folge einfach dieser Anleitung in folgenden Kapiteln:
 
@@ -28,10 +28,10 @@ Wer also mal eine komplette "End-to-End-Strecke" voller wild klingender Themen a
 
 
 > ### *Wichtige Hinweise* (TO BE CHECKED BY LAWYER?)
-- Dieses Projekt wurde im April und Mai 2019 erstellt und getestet - auf Grund von möglichen Änderungen der Hard- und Software und der jeweiligen Lizenzen kann es sein, dass zukünftig einzelne Schritte nicht mehr funktionieren und/oder rechtlich eingeschränkt oder gar ausgeschlossen werden. Birds on Mars übernimmt keine Gewähr und Verantwortung für die diesbezügliche Aktualität der vorliegenden Projektanleitung
-- Dieses Projekt ist - um es einfach zu halten - nicht vor dem Hintergrund von Sicherheitsaspekten optimiert. Wir empfehlen daher, einen separaten Google Account zu nutzen, der nach dem Projekt gelöscht werden kann.
-- Wir installieren zwar einen Wettersensor weisen aber darauf hin, dass der Aufbau nicht vor Feuchte und Regen geschützt ist. Um die Gefahr von Stromschlägen zu vermeiden und die Hardware zu schützen, darf der Aufbau und die Durchführung nur und ausschließlich in trockenen Umgebungen erfolgen.
-- Dieses Projekt lehnt sich an den Blog-Eintrag von [whatimade.today](http://www.whatimade.today/log-sensor-data-straight-to-google-sheets-from-a-raspberry-pi-zero-all-the-python-code/) an, ist allerdings insbesondere hinsichtlich der Ausführlichkeit der Anleitung und um einen Machine-Learning-Teil erweitert.
+>- Dieses Projekt wurde im April und Mai 2019 erstellt und getestet - auf Grund von möglichen Änderungen der Hard- und Software und der jeweiligen Lizenzen kann es sein, dass zukünftig einzelne Schritte nicht mehr funktionieren und/oder rechtlich eingeschränkt oder gar ausgeschlossen werden. Birds on Mars übernimmt keine Gewähr und Verantwortung für die diesbezügliche Aktualität der vorliegenden Projektanleitung
+>- Dieses Projekt ist - um es einfach zu halten - nicht vor dem Hintergrund von Sicherheitsaspekten optimiert. Wir empfehlen daher, einen separaten Google Account zu nutzen, der nach dem Projekt gelöscht werden kann.
+>- Wir installieren zwar einen Wettersensor weisen aber darauf hin, dass der Aufbau nicht vor Feuchte und Regen geschützt ist. Um die Gefahr von Stromschlägen zu vermeiden und die Hardware zu schützen, darf der Aufbau und die Durchführung nur und ausschließlich in trockenen Umgebungen erfolgen.
+>- Dieses Projekt lehnt sich an den Blog-Eintrag von [whatimade.today](http://www.whatimade.today/log-sensor-data-straight-to-google-sheets-from-a-raspberry-pi-zero-all-the-python-code/) an, ist allerdings insbesondere hinsichtlich der Ausführlichkeit der Anleitung und um einen Machine-Learning-Teil erweitert.
 
 <a id='chapter_1'></a>
 ## 1. "Zutaten" und Einkaufsliste
@@ -43,11 +43,11 @@ Hier wird genau aufgelistet, was benötigt wird und woher man es z.B. bekommen k
 
 Um mit dem Raspberry Pi und der Google Cloud kommunizieren zu können, brauchen wir zunächst einfach nur einen
 >- Computer inkl. einer 
-- USB-Tastatur, einer 
-- USB-Maus und eines
-- Monitors mit HDMI-Ports, einen 
-- Internetzugang über WLAN (alternativ: LAN-Zugang mit Kabel) und einen
-- Kreuzschlitzschraubenzieher und eine kleine Flachzange (zum Zusammenschrauben)
+>- USB-Tastatur, einer 
+>- USB-Maus und eines
+>- Monitors mit HDMI-Ports, einen 
+>- Internetzugang über WLAN (alternativ: LAN-Zugang mit Kabel) und einen
+>- Kreuzschlitzschraubenzieher und eine kleine Flachzange (zum Zusammenschrauben)
 
 Wir gehen mal davon aus, dass das vorhanden ist.
 
@@ -56,9 +56,9 @@ Wir gehen mal davon aus, dass das vorhanden ist.
 Die verwendete **Hardware** kostet insgesamt ca. 85 EUR:
 
 >- **Raspberry Pi** 3 Model B+ für ca. 35 EUR (erhältlich z.B. bei [Amazon](https://www.amazon.de/Raspberry-1373331-Pi-Modell-Mainboard/dp/B07BDR5PDW/ref=sr_1_5?s=computers&ie=UTF8&qid=1551864649&sr=1-5)).
-- **Zubehör-Bundle für den Raspberry** für ca. 24 EUR inkl. Gehäuse mit Lüfter, SD-Karte, SD-Reader, Stromkabel mit Schalter etc. (erhältlich z.B. bei [Amazon](https://www.amazon.de/Raspberry-Smraza-Netzteil-Kühlkörper-Kompatibel/dp/B01L78AE5O/ref=sr_1_68?s=computers&ie=UTF8&qid=1551864540&sr=1-68))
-- **Wetter-Sensor** (der im Prinzip auch ein wenig mehr kann) für ca. 19 EUR (erhätlich z.B. bei [Amazon](https://www.amazon.de/WINGONEER-Temperatur-Luftfeuchtigkeit-Sensormodul-Stützstapel/dp/B076SM2YG6/ref=sr_1_fkmr1_3?ie=UTF8&qid=1551865283&sr=8-3-fkmr1))
-- **Kabel zum Anstecken des Sensors** für ca. 7 EUR (erhältlich z.B. bei [Amazon](https://www.amazon.de/Female-Female-Male-Female-Male-Male-Steckbrücken-Drahtbrücken-bunt/dp/B01EV70C78/ref=pd_bxgy_img_2/261-5391223-3170926?_encoding=UTF8&pd_rd_i=B01EV70C78&pd_rd_r=18f290c9-5164-11e9-a261-d16e70736dca&pd_rd_w=Xm96L&pd_rd_wg=nuRWs&pf_rd_p=449f5fd6-8f81-46b7-aa57-ca96572671a1&pf_rd_r=3BATMRXANMY73F7W9A30&psc=1&refRID=3BATMRXANMY73F7W9A30))
+>- **Zubehör-Bundle für den Raspberry** für ca. 24 EUR inkl. Gehäuse mit Lüfter, SD-Karte, SD-Reader, Stromkabel mit Schalter etc. (erhältlich z.B. bei [Amazon](https://www.amazon.de/Raspberry-Smraza-Netzteil-Kühlkörper-Kompatibel/dp/B01L78AE5O/ref=sr_1_68?s=computers&ie=UTF8&qid=1551864540&sr=1-68))
+>- **Wetter-Sensor** (der im Prinzip auch ein wenig mehr kann) für ca. 19 EUR (erhätlich z.B. bei [Amazon](https://www.amazon.de/WINGONEER-Temperatur-Luftfeuchtigkeit-Sensormodul-Stützstapel/dp/B076SM2YG6/ref=sr_1_fkmr1_3?ie=UTF8&qid=1551865283&sr=8-3-fkmr1))
+>- **Kabel zum Anstecken des Sensors** für ca. 7 EUR (erhältlich z.B. bei [Amazon](https://www.amazon.de/Female-Female-Male-Female-Male-Male-Steckbrücken-Drahtbrücken-bunt/dp/B01EV70C78/ref=pd_bxgy_img_2/261-5391223-3170926?_encoding=UTF8&pd_rd_i=B01EV70C78&pd_rd_r=18f290c9-5164-11e9-a261-d16e70736dca&pd_rd_w=Xm96L&pd_rd_wg=nuRWs&pf_rd_p=449f5fd6-8f81-46b7-aa57-ca96572671a1&pf_rd_r=3BATMRXANMY73F7W9A30&psc=1&refRID=3BATMRXANMY73F7W9A30))
 
 <img src="./pics/1-purchases.jpeg" width=600 style="border:1px solid black"></br> 
 
@@ -67,7 +67,7 @@ Es wäre prinzipiell auch möglich, den Preis eine ganze Ecke zu drücken: man k
 Die verwendete **Software** gibt's für umme:
 
 >- Software bzw. Skripte, die der Raspberry benötigt lassen sich alle aus dem Netz laden. Wie das geht, beschreiben wir in Kapitel 2.
-- Alle sonstige "Software", die wir nutzen, sind Anwendungen von Google, die in der Cloud laufen und über das Internet erreichbar sind. Welche Anwendungen das sind und wie wir sie nutzen, wird in den Kapitel 3 und 4 gezeigt. Das alles geht mit einem einfachen **Google-Account**, den es kostenlos gibt. Vielleicht ist schon einer vorhanden; da das Projekt allerdings nicht für Sicherheitsaspekte optimiert ist, ***empfehlen wir einen separaten Account anzulegen, der später ggf. auch gelöscht werden kann***. Dies zeigen wir im Folgenden:
+>- Alle sonstige "Software", die wir nutzen, sind Anwendungen von Google, die in der Cloud laufen und über das Internet erreichbar sind. Welche Anwendungen das sind und wie wir sie nutzen, wird in den Kapitel 3 und 4 gezeigt. Das alles geht mit einem einfachen **Google-Account**, den es kostenlos gibt. Vielleicht ist schon einer vorhanden; da das Projekt allerdings nicht für Sicherheitsaspekte optimiert ist, ***empfehlen wir einen separaten Account anzulegen, der später ggf. auch gelöscht werden kann***. Dies zeigen wir im Folgenden:
 
 #### Einen neuen Google Account erzeugen (und löschen)
 
