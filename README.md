@@ -1,12 +1,7 @@
-![BIRDS LOGO]()
+<img src="./pics/BOM_icon_orange.png" width=100></br> 
 
-TO DOS:
-- Birds Logo einfügen
-- Disclaimer prüfen lassen?
-- Foto der "Einkäufe"
-- Fotos+eigene Skizze für die Verkabelung
-- Outlier kalibieren (und Cronjob 120 Sekunden vor Start warten lassen, damit sich die Raspi-Uhr synchronisiert)
-- Outlier markieren
+**TO DOS:**
+**- Disclaimer prüfen lassen?**
 
 # **Do it Yourself!** In der Cloud von Internet-of-Things bis Data Science
 
@@ -16,13 +11,11 @@ Begriffe wie "Internet of Things" (IoT), "Cloud" und "Data Science" klingen span
 
 In diesem kleinen Projekt wollen wir das alles - insbesondere für Anfänger - mit günstigen Mitteln und Schritt für Schritt erleb- und anfassbar machen. Es geht dabei explizit nicht um Theorie und Hintergründe, sondern der Spaß am Basteln und das gute Gefühl, "Hightech" mal selber zum Laufen gebracht zu haben, stehen absolut im Vordergrund.  
 
-![BILD z.B. End-to-End-Handwerker oder sowas]()
-
-Konkret wollen wir einen 
-- Kleinstcomputer ("Raspberry Pi") zum Laufen bringen, mit einem
-- Wetter-Sensor verbinden und die generierten Daten automatisiert in die 
-- Google-Cloud schieben. Dort können wir die Daten mit
-- Data Science-Algorithmen visualisieren und analysieren
+> **Konkret** wollen wir einen  
+- **Kleinstcomputer ("Raspberry Pi")** zum Laufen bringen, mit einem  
+- **Wetter-Sensor** verbinden und die generierten Daten automatisiert in die**  
+- **Google-Cloud** schieben. Dort können wir die Daten mit  
+- **Data Science-Algorithmen** visualisieren und analysieren
 
 Wer also mal eine komplette "End-to-End-Strecke" voller wild klingender Themen abschreiten möchte, folge einfach dieser Anleitung in folgenden Kapiteln:
 
@@ -49,7 +42,7 @@ Hier wird genau aufgelistet, was benötigt wird und woher man es z.B. bekommen k
 ### Grundvoraussetzungen
 
 Um mit dem Raspberry Pi und der Google Cloud kommunizieren zu können, brauchen wir zunächst einfach nur einen
-- Computer inkl. einer 
+>- Computer inkl. einer 
 - USB-Tastatur, einer 
 - USB-Maus und eines
 - Monitors mit HDMI-Ports, einen 
@@ -62,18 +55,18 @@ Wir gehen mal davon aus, dass das vorhanden ist.
 
 Die verwendete **Hardware** kostet insgesamt ca. 85 EUR:
 
-- **Raspberry Pi** 3 Model B+ für ca. 35 EUR (erhältlich z.B. bei [Amazon](https://www.amazon.de/Raspberry-1373331-Pi-Modell-Mainboard/dp/B07BDR5PDW/ref=sr_1_5?s=computers&ie=UTF8&qid=1551864649&sr=1-5)).
+>- **Raspberry Pi** 3 Model B+ für ca. 35 EUR (erhältlich z.B. bei [Amazon](https://www.amazon.de/Raspberry-1373331-Pi-Modell-Mainboard/dp/B07BDR5PDW/ref=sr_1_5?s=computers&ie=UTF8&qid=1551864649&sr=1-5)).
 - **Zubehör-Bundle für den Raspberry** für ca. 24 EUR inkl. Gehäuse mit Lüfter, SD-Karte, SD-Reader, Stromkabel mit Schalter etc. (erhältlich z.B. bei [Amazon](https://www.amazon.de/Raspberry-Smraza-Netzteil-Kühlkörper-Kompatibel/dp/B01L78AE5O/ref=sr_1_68?s=computers&ie=UTF8&qid=1551864540&sr=1-68))
 - **Wetter-Sensor** (der im Prinzip auch ein wenig mehr kann) für ca. 19 EUR (erhätlich z.B. bei [Amazon](https://www.amazon.de/WINGONEER-Temperatur-Luftfeuchtigkeit-Sensormodul-Stützstapel/dp/B076SM2YG6/ref=sr_1_fkmr1_3?ie=UTF8&qid=1551865283&sr=8-3-fkmr1))
 - **Kabel zum Anstecken des Sensors** für ca. 7 EUR (erhältlich z.B. bei [Amazon](https://www.amazon.de/Female-Female-Male-Female-Male-Male-Steckbrücken-Drahtbrücken-bunt/dp/B01EV70C78/ref=pd_bxgy_img_2/261-5391223-3170926?_encoding=UTF8&pd_rd_i=B01EV70C78&pd_rd_r=18f290c9-5164-11e9-a261-d16e70736dca&pd_rd_w=Xm96L&pd_rd_wg=nuRWs&pf_rd_p=449f5fd6-8f81-46b7-aa57-ca96572671a1&pf_rd_r=3BATMRXANMY73F7W9A30&psc=1&refRID=3BATMRXANMY73F7W9A30))
 
-![Bilder von allem]()
+<img src="./pics/1-purchases.jpeg" width=600 style="border:1px solid black"></br> 
 
 Es wäre prinzipiell auch möglich, den Preis eine ganze Ecke zu drücken: man könnte eine abgespecktere Version des Raspberry zu verwenden, statt des vorgeschlagenen Zubehör-Bundles ein einfacheres nutzen oder bereits vorhandene Teile (z.B. SD-Karten und -Reader) verwenden und auch einen einfacheren und billigeren Sensor verwenden. Vermutlich käme man spartanischer auch mit etwa 40 EUR aus. Aber das haben wir nicht getestet und schlagen es deshalb auch hier nicht vor.
 
 Die verwendete **Software** gibt's für umme:
 
-- Software bzw. Skripte, die der Raspberry benötigt lassen sich alle aus dem Netz laden. Wie das geht, beschreiben wir in Kapitel 2.
+>- Software bzw. Skripte, die der Raspberry benötigt lassen sich alle aus dem Netz laden. Wie das geht, beschreiben wir in Kapitel 2.
 - Alle sonstige "Software", die wir nutzen, sind Anwendungen von Google, die in der Cloud laufen und über das Internet erreichbar sind. Welche Anwendungen das sind und wie wir sie nutzen, wird in den Kapitel 3 und 4 gezeigt. Das alles geht mit einem einfachen **Google-Account**, den es kostenlos gibt. Vielleicht ist schon einer vorhanden; da das Projekt allerdings nicht für Sicherheitsaspekte optimiert ist, ***empfehlen wir einen separaten Account anzulegen, der später ggf. auch gelöscht werden kann***. Dies zeigen wir im Folgenden:
 
 #### Einen neuen Google Account erzeugen (und löschen)
@@ -282,13 +275,11 @@ Dann schalten wir den Raspberry **aus (und stecken ihn vom Netzteil ab), um den 
 
 Die Kabelverbindungen herzustellen ist etwas fummelig. Aus dem Kabelsortiment brauchen wir ein Bündel von vier Kabeln, in die man Pins "hereinstecken" kann.
 
-<img src="./pics/3_cable.png" width=600 style="border:1px solid black"></br>  
+<img src="./pics/3_cable.jpeg" width=600 style="border:1px solid black"></br>  
 
-Dann verbinden wir die Seite des Sensors, an der nur 4 Pins sind, mit den Kabeln:
+Dann verbinden wir die Seite des Sensors, an der nur 4 Pins sind, mit den Kabeln.  
 
-<img src="./pics/3_cable_to_sensor.png" width=600 style="border:1px solid black"></br>  
-
-Wir gucken genau auf die "Kurzbezeichnungen" auf der Platine des Sensors, merken uns jeweils genau die Kabelfarbe und verbinden die anderen Kabelenden nach folgendem Schema mit den entsprechenden Pins auf dem Raspberry:
+Dabei gucken wir genau auf die "Kurzbezeichnungen" auf der Platine des Sensors, merken uns jeweils genau die Kabelfarbe und verbinden die anderen Kabelenden nach folgendem Schema mit den entsprechenden Pins auf dem Raspberry:
 
 <img src="./pics/3_wireing.png" width=600 style="border:1px solid black"></br>  
 <img src="./pics/3_cable_to_raspi.png" width=600 style="border:1px solid black"></br>  
@@ -356,7 +347,7 @@ Jetzt (die Spannung steigt, die Trommeln wirbeln) gucken wir, ob das Skript läu
 Hat's funktioniert? Zeigt sowohl der Terminal, als auch die Google-Tabelle die Daten an?  
 **Es hat geklappt!!**
 
-Wir wollen nun erreichen, dass der Raspberry - einfach beim Anschalten und ohne Befehlseingabe und ohne dass Tastatur, Maus und Bildschirm angeschlossen sein müssen - startet und dauerhaft alle paar Sekunden ausführt. Dazu müssen wir noch einen sogenannten "cronjob" einrichten. Im Terminal geben wir dafür `crontab -e` ein und geben dort in eine neue Zeile `@reboot (cd /home/pi/Desktop/diy-iot2ds/src ; python stream_weather_data.py)`:
+Wir wollen nun erreichen, dass der Raspberry - einfach beim Anschalten und ohne Befehlseingabe und ohne dass Tastatur, Maus und Bildschirm angeschlossen sein müssen - startet und dauerhaft alle paar Sekunden ausführt. Dazu müssen wir noch einen sogenannten "cronjob" einrichten. Im Terminal geben wir dafür `crontab -e` ein und geben dort in eine neue Zeile `@reboot (sleep 120 ; cd /home/pi/Desktop/diy-iot2ds/src ; python stream_weather_data.py)`:
 
 <img src="./pics/3_cronjob_1.png" width=600 style="border:1px solid black"></br> 
 <img src="./pics/3_cronjob_1.png" width=600 style="border:1px solid black"></br> 
