@@ -34,6 +34,9 @@ def datetime_string():
     return date + " " + time 
 
 def get_data_for_gsheet():
+    """get_data_for_gsheet method:
+        reads data from bme280 and prepares a dictionary for writing to gsheet
+    """
     bme = bme280.Bme280()
     bme.set_mode(bme280.MODE_FORCED)
     temperature, pressure, humidity = bme.get_data()
@@ -44,6 +47,9 @@ def get_data_for_gsheet():
     return body
 
 def write_data_to_gsheet(service, body):
+    """write_data_to_gsheet method:
+        writes data into defined gsheet
+    """
     service.spreadsheets().values().append(
         spreadsheetId=MY_SPREADSHEET_ID, 
         range=MY_TAB_NAME + '!A1:D1',
