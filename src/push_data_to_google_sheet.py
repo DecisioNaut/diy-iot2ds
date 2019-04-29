@@ -67,19 +67,6 @@ def main():
     print('temp: ' + str(data[1]))
     print('prsr: ' + str(data[2]))
     print('hmdt: ' + str(data[3]))
-    
-
-    # Read the BME280 chip
-#    bme = bme280.Bme280()
-#    bme.set_mode(bme280.MODE_FORCED)
-#    tempC, pressure, humidity = bme.get_data()
-#    pressure = pressure/100.
-    # Print BME280 data in terminal
-#    print ('Temperature: %f C' % tempC)
-#    print ('Pressure: %f hPa' % pressure)
-#    print ('Humidity: %f %%rH' % humidity)
-    # Update Google Sheet
-#    update_sheet(MY_TAB_NAME, tempC, pressure, humidity)
 
 if __name__ == '__main__':  
     main()
