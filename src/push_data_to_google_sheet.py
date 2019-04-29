@@ -59,7 +59,6 @@ def main():
     """
     service = setup_API()
 
-#    for i in range(10):
     body = get_data_for_gsheet()
     write_data_to_gsheet(service, body)
     data = body['values'][0]
