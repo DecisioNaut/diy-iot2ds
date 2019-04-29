@@ -11,6 +11,8 @@ Begriffe wie "Internet of Things" (IoT), "Cloud" und "Data Science" klingen span
 
 In diesem kleinen Projekt wollen wir das alles - insbesondere für Anfänger - mit günstigen Mitteln und Schritt für Schritt erleb- und anfassbar machen. Es geht dabei explizit nicht um Theorie und Hintergründe, sondern der Spaß am Basteln und das gute Gefühl, "Hightech" mal selber zum Laufen gebracht zu haben, stehen absolut im Vordergrund.  
 
+<img src="./pics/1-01_intro.png" width=600></br> 
+
 > **Konkret** wollen wir einen  
 >- **Kleinstcomputer ("Raspberry Pi")** zum Laufen bringen, mit einem  
 >- **Wetter-Sensor** verbinden und die generierten Daten automatisiert in die**  
@@ -75,7 +77,7 @@ Ein Google Account kann direkt von der [Google-Startseite](https://www.google.co
 
 <img src="./pics/1-02_registration.png" width=600 style="border:1px solid black"></br>  
 
-Von dort wird man durch den weiteren Prozess gut geführt (und ist danach automatisch eingeloggt und kann über den Browser auf sein Konto zugreifen).
+Von dort wird man durch den weiteren Prozess gut geführt (und ist danach automatisch eingeloggt und kann über den Browser auf sein Konto zugreifen). Das Passwort, dass wir angeben mussten, notieren wir uns natürlich separat und sicher (brauchen wir später u.a. auch vom Raspberry aus).
 
 Auch das **Löschen eines Accounts** geht einfach, indem man sich ggf. in sein Konto einloggt...  
 
@@ -98,10 +100,10 @@ Ausführliche Informationen, Software, Anleitungen, eine Community etc. finden s
 
 Nicht nur um Kosten zu sparen, ist ein Raspberry auf das Wesentlichste reduziert: nur eine Platine mit Chip und Anschlüssen und Steckverbindungen - kein Display, keine Tastatur. Man kann sich an ihm quasi das Skelett eines Rechners ansehen und über die Steckverbindungen alles Mögliche wie Kameras, Sensoren, Roboterarme usw. usf. anbringen.
 
-Um den Raspberry ein wenig zu schützen (und weil's cooler aussieht) schrauben wir den Raspberry in ein kleines Gehäuse (ein sogenanntes "Rack"). Eine Bauanleitung liegt bei. Wer's ganz genau sehen möchte, kann sich auch folgende kleine Videoanteilung und https://www.youtube.com/watch?v=i7Gw-wb1sfk ansehen:
+Um den Raspberry ein wenig zu schützen (und weil's cooler aussieht) schrauben wir den Raspberry in ein kleines Gehäuse (ein sogenanntes "Rack"). Eine Bauanleitung liegt bei. Wer's ganz genau sehen möchte, kann sich auch folgende kleine Videoanteilung und https://www.youtube.com/watch?v=CG_ik5CxuGU ansehen:
  
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=i7Gw-wb1sfk
-" target="_blank"><img src="http://img.youtube.com/vi/i7Gw-wb1sfk/0.jpg" 
+<a href="https://www.youtube.com/watch?v=CG_ik5CxuGU
+" target="_blank"><img src="http://img.youtube.com/vi/CG_ik5CxuGU/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="600" height="400" border="0" /></a>
 
 
@@ -264,7 +266,7 @@ mit der Google Tabelle zu sprechen (lesen & schreiben):
 <a id='chapter_3-2'></a>
 ### 3.b Anschließen des Sensors
 
-Der Sensor wird gleich an die Steckplätze des Raspberry angeschlossen. Damit der Raspberry mit den Steckplätzen sprechen kann müssen wir das aver zunächst im Hauptmenü (Beere oben links) im Punkt "Einstellungen"/"Raspberry Pi Konfiguration" aktivieren:
+Der Sensor wird gleich an die Steckplätze des Raspberry angeschlossen. Damit der Raspberry mit den Steckplätzen sprechen kann müssen wir das aber zunächst im Hauptmenü (Beere oben links) im Punkt "Einstellungen"/"Raspberry Pi Konfiguration" aktivieren:
 
 </br><img src="./pics/3_sensor_1.png" width=600 style="border:1px solid black">
 </br> 
@@ -281,10 +283,12 @@ Dann verbinden wir die Seite des Sensors, an der nur 4 Pins sind, mit den Kabeln
 
 Dabei gucken wir genau auf die "Kurzbezeichnungen" auf der Platine des Sensors, merken uns jeweils genau die Kabelfarbe und verbinden die anderen Kabelenden nach folgendem Schema mit den entsprechenden Pins auf dem Raspberry:
 
-<img src="./pics/3_wireing.png" width=600 style="border:1px solid black"></br>  
-<img src="./pics/3_cable_to_raspi.png" width=600 style="border:1px solid black"></br>  
+<img src="./pics/3_wireing_1.jpeg" width=400 style="border:1px solid black"></br>
+<img src="./pics/3_wireing_2.jpeg" width=600 style="border:1px solid black"></br>  
 
 Das Ganze soll stabil sein. Aber bitte keine rohe Gewalt ausüben: die kleinen Pins könnten auch schon mal abbrechen.
+
+Zuletzt achten wir darauf, dass der kleine Schalter am Sensor auf 3,3 Volt gestellt ist.  
 
 Das war nun manuell-handwerklich aber auch der frickeligste Teil...
 
@@ -329,9 +333,9 @@ Zwei Dinge sind hier (jeweils hinter dem `=`-Zeichen zu ergänzen:
 
 Nun speichern wir das modifizierte Skript (Button "Save").
 
-Wir müssen auch überprüfen, ob die "pins"  wie erwartet sind (Adressen der Steckverbindungen des Sensors mit dem Raspberry).
+Wir müssen auch überprüfen, ob die "pins" wie erwartet sind (Adressen der Steckverbindungen des Sensors mit dem Raspberry).
 
-Dazu geben wir im Terminal `i2cdetect -y 1` ein:
+Dazu geben wir im Terminal `i2cdetect -y 1` ein (I2C heißt übrigens ["Inter Integrated Circuit"](https://de.wikipedia.org/wiki/I%C2%B2C)):
 
 <img src="./pics/3_software_05a.png" width=600 style="border:1px solid black"></br>  
 
@@ -366,5 +370,5 @@ So, super, jetzt steht unser Raspberry mit dem Sensor irgendwo in Reichweite des
 Nun können wir an unseren "normalen" Computer gehen, uns bei unserem Google-Account einloggen, die Tabelle in GDrive aufmachen und uns freuen, dass etwa alle 10 Sekunden ein neuer Datensatz mit Zeit-, Temperatur-, Luftdruck- und Luftfeuchtigkeitsangabe "hereintickert". Ein Gefühl der Befriedigung macht sich bereit, aber irgendwie könnte es bunter und interessanter sein... kann man eigentlich noch Spannenderes mit den Daten machen, als nur diese Daten zu bewundern?
 
 Klaro: dazu klicken wir diesen Link:
-https://github.com/QuantificAid/diy-iot2ds/blob/master/analyze_weather_data.ipynb
+https://github.com/birds-on-mars/diy-iot2ds/blob/master/analyze_weather_data.ipynb
 
