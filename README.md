@@ -29,8 +29,8 @@ Wer also mal eine komplette "End-to-End-Strecke" voller wild klingender Themen a
 </ol>
 
 
-> ### *Wichtige Hinweise* (TO BE CHECKED BY LAWYER?)
->- Dieses Projekt wurde im April und Mai 2019 erstellt und getestet - auf Grund von möglichen Änderungen der Hard- und Software und der jeweiligen Lizenzen kann es sein, dass zukünftig einzelne Schritte nicht mehr funktionieren und/oder rechtlich eingeschränkt oder gar ausgeschlossen werden. Birds on Mars übernimmt keine Gewähr und Verantwortung für die diesbezügliche Aktualität der vorliegenden Projektanleitung
+> ### *Wichtige Hinweise*
+>- Dieses Projekt wurde im April und Mai 2019 erstellt und getestet - auf Grund von möglichen Änderungen der Hard- und Software und der jeweiligen Lizenzen kann es sein, dass zukünftig einzelne Schritte nicht mehr funktionieren und/oder rechtlich eingeschränkt oder gar ausgeschlossen werden. Birds on Mars übernimmt keine Gewähr und Verantwortung für die diesbezügliche Aktualität der vorliegenden Projektanleitung. Dieses Repository wird nicht gewartet.
 >- Dieses Projekt ist - um es einfach zu halten - nicht vor dem Hintergrund von Sicherheitsaspekten optimiert. Wir empfehlen daher, einen separaten Google Account zu nutzen, der nach dem Projekt gelöscht werden kann.
 >- Wir installieren zwar einen Wettersensor, weisen aber darauf hin, dass der Aufbau nicht vor Feuchte und Regen geschützt ist. Um die Gefahr von Stromschlägen zu vermeiden und die Hardware zu schützen, darf der Aufbau und die Durchführung nur und ausschließlich in trockenen Umgebungen erfolgen.
 >- Dieses Projekt lehnt sich an den Blog-Eintrag von [whatimade.today](http://www.whatimade.today/log-sensor-data-straight-to-google-sheets-from-a-raspberry-pi-zero-all-the-python-code/) an, ist allerdings insbesondere hinsichtlich der Ausführlichkeit der Anleitung und um einen Machine-Learning-Teil erweitert.
@@ -69,7 +69,7 @@ Es wäre prinzipiell auch möglich, den Preis eine ganze Ecke zu drücken: man k
 Die verwendete **Software** gibt's für umme:
 
 >- Software bzw. Skripte, die der Raspberry benötigt, lassen sich alle aus dem Netz laden. Wie das geht, beschreiben wir in Kapitel 2.
->- Alle sonstige "Software", die wir nutzen, sind Anwendungen von Google, die in der Cloud laufen und über das Internet erreichbar sind. Welche Anwendungen das sind und wie wir sie nutzen, wird in den Kapitel 3 und 4 gezeigt. Das alles geht mit einem einfachen **Google-Account**, den es kostenlos gibt. Vielleicht ist schon einer vorhanden; da das Projekt allerdings nicht für Sicherheitsaspekte optimiert ist, ***empfehlen wir einen separaten Account anzulegen, der später ggf. auch gelöscht werden kann***. Dies zeigen wir im Folgenden:
+>- Alle sonstige "Software", die wir nutzen, sind Anwendungen von Google, die in der Cloud laufen und über das Internet erreichbar sind. Welche Anwendungen das sind und wie wir sie nutzen, wird in den Kapiteln 3 und 4 gezeigt. Das alles geht mit einem einfachen **Google-Account**, den es kostenlos gibt. Vielleicht ist schon einer vorhanden; da das Projekt allerdings nicht für Sicherheitsaspekte optimiert ist, ***empfehlen wir einen separaten Account anzulegen, der später ggf. auch gelöscht werden kann***. Dies zeigen wir im Folgenden:
 
 #### Einen neuen Google Account erzeugen (und löschen)
 
@@ -139,7 +139,7 @@ Damit sich das Betriebssystem vollständig entpackt und initialisiert, müssen w
 - das Netzteil anschließen und 
 - ihn dann ein - aber <u>erst dann!</u> - einschalten (weil der Raspberry sonst z.B. den Bildschirm nicht erkennen kann, da er nicht ohne weiteres Plug-and-Play-fähig ist).  
 
-**Das erste Booten und System-Update** des Raspberry dauert wegen des Entpackens des Systems und dem Download der Updates ca. 20min:
+**Das erste Booten und System-Update** des Raspberry dauert wegen des Entpackens des Systems und des Downloads der Updates ca. 20min:
 - So sieht nach einer Weile Warten der Startbildschirm aus:  
 </br><img src="./pics/2_boot_welcome.png" width=400 style="border:1px solid black">  
 - Dann können/sollten die Landeseinstellungen angepasst werden:  
@@ -208,13 +208,13 @@ Wir benennen die Tabelle (oben links) passend mit "diy-iot2ds" ...
 
 
 Zuletzt merken wir uns für später die **ID-Nummer der Tabelle**.   
-Der Zugriff auf die Tabelle erfolgt nämlich im engeren Sinne nicht über den vermeintlichen Dateinamen, sondern über eine längliche innerhalb der Google-Cloud erzeugte ID, die sich aber einfach aus der http-Adresse ablesen lässt:
+Der Zugriff auf die Tabelle erfolgt nämlich im engeren Sinne nicht über den vermeintlichen Dateinamen, sondern über eine längliche, innerhalb der Google-Cloud erzeugte ID, die sich aber einfach aus der http-Adresse ablesen lässt:
 
 <img src="./pics/3_google_table_8.png" width=600 style="border:1px solid black"></br>  
 
-So, jetzt wird ein wenig sportlicher: 
+So, jetzt wird es ein wenig sportlicher: 
 
-Wir erzeugen einen **<u>Schlüssel</u> mit dem wir später auf die Google-Tabelle automatisch/"von außen" zugreifen dürfen**. Dazu wechseln wir zu [GoogleAPIs](https://console.developers.google.com) unter der Adresse https://console.developers.google.com und müssen die Nutzungsbedingungen akzeptieren:
+Wir erzeugen einen **<u>Schlüssel</u> mit dem wir später auf die Google-Tabelle automatisch "von außen" zugreifen dürfen**. Dazu wechseln wir zu [GoogleAPIs](https://console.developers.google.com) unter der Adresse https://console.developers.google.com und müssen die Nutzungsbedingungen akzeptieren:
 
 <img src="./pics/3_google_credentials_01.png" width=600 style="border:1px solid black"></br> 
 <img src="./pics/3_google_credentials_02.png" width=600 style="border:1px solid black"></br> 
@@ -268,7 +268,7 @@ Nun wechseln wir das Fenster und sind wieder auf unserer **Google Tabelle** und 
 <a id='chapter_3-2'></a>
 ### 3.b Anschließen des Sensors
 
-Der Sensor wird gleich an die Steckplätze des Raspberry angeschlossen. Damit der Raspberry mit den Steckplätzen sprechen kann, müssen wir das aber zunächst im **Hauptmenü** (Beere oben links) im Punkt "Einstellungen"/"Raspberry Pi Konfiguration" den Punkt **I2C** aktivieren:
+Der Sensor wird gleich an die Steckplätze des Raspberry angeschlossen. Damit der Raspberry mit den Steckplätzen sprechen kann, müssen wir aber zunächst im **Hauptmenü** (Beere oben links) im Punkt "Einstellungen"/"Raspberry Pi Konfiguration" den Punkt **I2C** aktivieren:
 
 </br><img src="./pics/3_sensor_1.png" width=600 style="border:1px solid black">
 </br> 
@@ -308,7 +308,7 @@ Dann geben wir `git clone https://github.com/birds-on-mars/diy-iot2ds` ein, wodu
 <img src="./pics/3_software_02.png" width=600 style="border:1px solid black"></br> 
 <img src="./pics/3_software_03.png" width=600 style="border:1px solid black"></br> 
 
-Weiterhin werden wir ein paar sogenannte Bibliotheken brauchen, damit die heruntergeladene Programme funktionieren und Sensor und Google-Cloud sprechen können. Dazu geben wir 
+Weiterhin werden wir ein paar sogenannte Bibliotheken brauchen, damit die heruntergeladenen Programme funktionieren und Sensor und Google-Cloud sprechen können. Dazu geben wir 
 
 - `sudo apt-get update`
 - `sudo apt-get install -y python-smbus i2c-tools`
@@ -346,14 +346,14 @@ Sollte da `77` zu sehen sein, ist alles schon fein. Sollte da was anderes zu seh
 <img src="./pics/3_software_05b.png" width=600 style="border:1px solid black"></br>  
 
 
-Jetzt (die Spannung steigt, die Trommeln wirbeln) gucken wir, ob das Skript läuft, indem wir im Termninal mit `cd Desktop/diy-iot2ds/src` in unser Skript-Verzeichnis gehen und dort `python push_data_to_google_sheet.py` eingeben:
+Jetzt (die Spannung steigt, die Trommeln wirbeln) gucken wir, ob das Skript läuft, indem wir im Terminal mit `cd Desktop/diy-iot2ds/src` in unser Skript-Verzeichnis gehen und dort `python push_data_to_google_sheet.py` eingeben:
 
 <img src="./pics/3_software_06.png" width=600 style="border:1px solid black"></br> 
 
 Hat's funktioniert? Zeigt sowohl der Terminal, als auch die Google-Tabelle die Daten an?  
 **Es hat geklappt!!**
 
-Wir wollen nun erreichen, dass der Raspberry - einfach beim Anschalten und ohne Befehlseingabe und ohne dass Tastatur, Maus und Bildschirm angeschlossen sein müssen - startet und dauerhaft alle paar Sekunden ausführt. Dazu müssen wir noch einen sogenannten "cronjob" einrichten. Im Terminal geben wir dafür `crontab -e` ein und geben dort in eine neue Zeile `@reboot (sleep 120 ; cd /home/pi/Desktop/diy-iot2ds/src ; python stream_weather_data.py)`. *Sollten wir gefragt werden, welcher Editor es zum Erstellen des cronjobs es sein soll, nehmen wir einfach "nano" (Option 2 - auch Vorschlag des Systems).*
+Wir wollen nun erreichen, dass der Raspberry - einfach beim Anschalten und ohne Befehlseingabe und ohne dass Tastatur, Maus und Bildschirm angeschlossen sein müssen - startet und dauerhaft alle paar Sekunden ausführt. Dazu müssen wir noch einen sogenannten "cronjob" einrichten. Im Terminal geben wir dafür `crontab -e` ein und geben dort in eine neue Zeile `@reboot (sleep 120 ; cd /home/pi/Desktop/diy-iot2ds/src ; python stream_weather_data.py)`. *Sollten wir gefragt werden, welcher Editor zum Erstellen des cronjobs es sein soll, nehmen wir einfach "nano" (Option 2 - auch Vorschlag des Systems).*
 
 <img src="./pics/3_cronjob_1.png" width=600 style="border:1px solid black"></br> 
 <img src="./pics/3_cronjob_1.png" width=600 style="border:1px solid black"></br> 
@@ -361,7 +361,7 @@ Wir wollen nun erreichen, dass der Raspberry - einfach beim Anschalten und ohne 
 
 Und speichern und schließen mit `Strg-o` (oder `control-o`), `Enter` und `Strg-X` (oder `control-X`).
 
-Jetzt können wir den Raspberry ausschalten, alles abklemmen, ihn irgendwohin in Reichweite des WLAN stellen, an Strom anschließen, einschalten und **fertig ist unser IoT-Gerät, das mit der Cloud spricht!**
+Jetzt können wir den Raspberry ausschalten, alles abklemmen, ihn irgendwohin in Reichweite des WLANs stellen, an Strom anschließen, einschalten und **fertig ist unser IoT-Gerät, das mit der Cloud spricht!**
 
 <a id='chapter_4'></a>
 ## Ein wenig Data Science...
