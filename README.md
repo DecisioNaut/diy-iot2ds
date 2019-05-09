@@ -268,7 +268,7 @@ Nun wechseln wir das Fenster und sind wieder auf unserer **Google Tabelle** und 
 <a id='chapter_3-2'></a>
 ### 3.b Anschließen des Sensors
 
-Der Sensor wird gleich an die Steckplätze des Raspberry angeschlossen. Damit der Raspberry mit den Steckplätzen sprechen kann, müssen wir das aber zunächst im **Hauptmenü** (Beere oben links) im Punkt "Einstellungen"/"Raspberry Pi Konfiguration" die Punkte **SSH** und **I2C** aktivieren:
+Der Sensor wird gleich an die Steckplätze des Raspberry angeschlossen. Damit der Raspberry mit den Steckplätzen sprechen kann, müssen wir das aber zunächst im **Hauptmenü** (Beere oben links) im Punkt "Einstellungen"/"Raspberry Pi Konfiguration" den Punkt **I2C** aktivieren:
 
 </br><img src="./pics/3_sensor_1.png" width=600 style="border:1px solid black">
 </br> 
