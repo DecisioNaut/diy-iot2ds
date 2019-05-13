@@ -363,7 +363,7 @@ Und speichern und schließen mit `Strg-o` (oder `control-o`), `Enter` und `Strg-
 
 Jetzt können wir den Raspberry ausschalten, alles abklemmen, ihn irgendwohin in Reichweite des WLANs stellen, an Strom anschließen, einschalten und **fertig ist unser IoT-Gerät, das mit der Cloud spricht!**
 
-***Aber Achtung: Dieser cronjob erzeugt ziemlich viel Aktion auf dem Raspberry. Wir brauchen ihn nur zum "autarken" Schreiben der Daten. Während er läuft, laufen andere Programme auf dem Raspberry nur sehr schleppend oder gar nicht. ***D.h. alles weitere sollte man auf seinem "normalen" Rechner machen und wenn wir den cronjob nicht mehr brauchen, öffnen wir die Datei wieder mit `crontab -e` und löschen unsere Eintragungen wieder raus (und speichern mit `Strg-o`, `Enter` und `Strg-X`
+**Aber Achtung: Dieser cronjob erzeugt ziemlich viel Aktion auf dem Raspberry. Wir brauchen ihn nur zum "autarken" Schreiben der Daten. Während er läuft, laufen andere Programme auf dem Raspberry nur sehr schleppend oder gar nicht. **D.h. alles weitere sollte man auf seinem "normalen" Rechner machen und wenn wir den cronjob nicht mehr brauchen, öffnen wir die Datei wieder mit `crontab -e` und löschen unsere Eintragungen wieder raus (und speichern mit `Strg-o`, `Enter` und `Strg-X`
 
 <a id='chapter_4'></a>
 ## Ein wenig Data Science...
