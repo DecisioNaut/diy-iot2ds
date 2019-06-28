@@ -1,8 +1,5 @@
 <img src="./pics/BOM_icon_orange.png" width=100></br> 
 
-**TO DOS:**
-**- Disclaimer prüfen lassen?**
-
 # **Do it Yourself!** In der Cloud von Internet-of-Things bis Data Science
 
 ## Darum geht's
